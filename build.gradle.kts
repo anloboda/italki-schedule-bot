@@ -40,8 +40,6 @@ dependencies {
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.mockk:mockk:1.13.4")
-	testImplementation ("io.github.kotlinslang.telegram:testframework:0.0.5")
-
 }
 
 tasks.withType<KotlinCompile> {
