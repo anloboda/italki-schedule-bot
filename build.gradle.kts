@@ -33,8 +33,15 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-cache")
 	implementation("com.github.ben-manes.caffeine:caffeine:3.0.4")
 
+	implementation("io.github.resilience4j:resilience4j-spring-boot2:2.0.2")
+	implementation("io.github.resilience4j:resilience4j-kotlin:2.0.2")
+	implementation("org.springframework.boot:spring-boot-starter-aop:3.0.4")
+
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.mockk:mockk:1.13.4")
+	testImplementation ("io.github.kotlinslang.telegram:testframework:0.0.5")
+
 }
 
 tasks.withType<KotlinCompile> {
