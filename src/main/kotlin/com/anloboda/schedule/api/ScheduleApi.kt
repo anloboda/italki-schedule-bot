@@ -1,0 +1,19 @@
+package com.anloboda.schedule.api
+
+import com.anloboda.schedule.api.response.ItalkiScheduleResponse
+import com.anloboda.schedule.feign.OkHttpClientConfig
+import org.springframework.cloud.openfeign.FeignClient
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestParam
+
+@FeignClient(name = "italkiClient", url = "\${italki.api.url}", configuration = [OkHttpClientConfig::class])
+interface ScheduleApi {
+
+    @GetMapping("/api/v2/teacher/{id}/schedule", produces = ["application/json"])
+    fun get(
+        @PathVariable(name = "id") id: Int,
+        @RequestParam(value = "start_time") startTime: String,
+        @RequestParam(value = "end_time") endTime: String
+    ): ItalkiScheduleResponse
+}
