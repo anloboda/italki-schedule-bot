@@ -1,7 +1,7 @@
 package com.anloboda.schedule.api
 
 import com.anloboda.schedule.api.response.ItalkiScheduleResponse
-import com.anloboda.schedule.feign.OkHttpClientConfig
+import com.anloboda.schedule.config.OkHttpClientConfig
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.web.bind.annotation.GetMapping

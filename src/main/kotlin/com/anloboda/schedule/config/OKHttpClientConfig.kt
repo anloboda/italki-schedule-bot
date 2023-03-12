@@ -1,4 +1,4 @@
-package com.anloboda.schedule.feign
+package com.anloboda.schedule.config
 
 import okhttp3.OkHttpClient
 import org.springframework.context.annotation.Bean
