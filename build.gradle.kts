@@ -30,10 +30,11 @@ dependencies {
 	implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
 	implementation("com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5")
 	implementation("ch.qos.logback:logback-classic:1.2.5")
+	implementation("org.springframework.boot:spring-boot-starter-cache")
+	implementation("com.github.ben-manes.caffeine:caffeine:3.0.4")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.mockk:mockk:1.13.4")
-
-
 }
 
 tasks.withType<KotlinCompile> {
