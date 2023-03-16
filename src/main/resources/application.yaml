@@ -13,7 +13,6 @@ feign.client.config:
         maxSize: 1
         expireAfterWrite: 60
 
-
 resilience4j:
   circuitbreaker:
     instances:

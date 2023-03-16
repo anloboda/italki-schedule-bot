@@ -24,4 +24,5 @@ data class Schedule(
     fun toTelegramString() = MESSAGE_TEMPLATE.format(
         zonedLessons.toLessonLines().joinToString(System.lineSeparator())
     )
+
 }
