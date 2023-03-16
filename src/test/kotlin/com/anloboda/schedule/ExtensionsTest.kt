@@ -10,7 +10,7 @@ import java.time.ZonedDateTime
 class ExtensionsTest {
 
     @Test
-    fun testToSortedZonedLessons() {
+    fun `toSortedZonedLessons() should convert to sorted zoned lessons`() {
         //given
         val italkiLessons = listOf(
             ItalkiLesson(startTime = "2023-03-13T15:00:00+00:00", "2023-03-13T16:00:00+00:00"),
@@ -46,7 +46,7 @@ class ExtensionsTest {
     }
 
     @Test
-    fun testToLessonLines() {
+    fun `toLessonLines() should build array with lesson lines`() {
         //given
         val zonedLessons = listOf(
             ZonedLesson(

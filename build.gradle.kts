@@ -24,14 +24,23 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+
 	implementation("org.telegram:telegrambots-spring-boot-starter:6.5.0")
+
 	implementation("org.springframework.cloud:spring-cloud-starter-openfeign:3.1.5")
 	implementation("io.github.openfeign:feign-okhttp:10.12")
 	implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
+
 	implementation("com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5")
+
+	implementation("org.slf4j:slf4j-api:1.7.32")
 	implementation("ch.qos.logback:logback-classic:1.2.5")
+
 	implementation("org.springframework.boot:spring-boot-starter-cache")
 	implementation("com.github.ben-manes.caffeine:caffeine:3.0.4")
+
+	implementation("io.github.resilience4j:resilience4j-spring-boot2:2.0.2")
+	implementation("org.springframework.boot:spring-boot-starter-aop:3.0.4")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.mockk:mockk:1.13.4")

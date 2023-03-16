@@ -17,8 +17,8 @@ class CacheConfig {
 
     @Bean
     fun cacheManager(
-        @Value("\${feign.client.config.italki.schedule.cache.maxSize}") scheduleCacheMaxSize: Long,
-        @Value("\${feign.client.config.italki.schedule.cache.expireAfterWrite}") scheduleCacheExpireAfterWrite: Long,
+        @Value("\${feign.client.config.italki.get-schedule.cache.maxSize}") scheduleCacheMaxSize: Long,
+        @Value("\${feign.client.config.italki.get-schedule.cache.expireAfterWrite}") scheduleCacheExpireAfterWrite: Long,
     ): CacheManager {
         val cacheManager = SimpleCacheManager()
         val getScheduleCache =

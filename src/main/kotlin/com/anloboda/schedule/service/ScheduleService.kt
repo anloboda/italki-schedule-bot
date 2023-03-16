@@ -4,7 +4,6 @@ import com.anloboda.schedule.repository.ScheduleRepository
 import com.anloboda.schedule.service.model.Schedule
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
-import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 
