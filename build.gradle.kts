@@ -6,7 +6,6 @@ plugins {
 	id("org.junit.platform.gradle.plugin")
 	kotlin("jvm") version "1.7.22"
 	kotlin("plugin.spring") version "1.7.22"
-	id("org.junit.platform.gradle.plugin")
 }
 
 group = "com.anloboda"
