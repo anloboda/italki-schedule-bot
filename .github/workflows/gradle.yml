@@ -28,5 +28,13 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    - name: Build with Gradle
-      run: ./gradlew build
+    - name: Build and test
+      run: |
+        ./gradlew build --console=plain --no-daemon > output.txt
+        echo "::set-output name=test-output::$(cat output.txt)"
+
+    - name: Upload test output artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-output
+        path: output.txt
