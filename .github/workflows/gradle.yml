@@ -31,4 +31,4 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Print test report
-      run: cat /home/runner/work/my-project/my-project/build/reports/tests/test/index.html
+      run: cat /home/runner/work/italki-schedule-bot/italki-schedule-bot/build/reports/tests/test/index.html
