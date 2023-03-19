@@ -30,6 +30,6 @@ jobs:
         distribution: 'temurin'
     - name: Build and test
       run: |
-        ./gradlew build --console=plain --no-daemon
+        ./gradlew build --console=verbose --no-daemon
       env:
         CI: true
