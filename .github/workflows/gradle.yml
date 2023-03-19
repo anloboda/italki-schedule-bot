@@ -38,4 +38,4 @@ jobs:
       if: always()
       with:
         name: Test results
-        path: '/home/runner/work/italki-schedule-bot/italki-schedule-bot/build/reports/tests/test/index.html'
+        path: '/home/runner/work/italki-schedule-bot/italki-schedule-bot/build/reports/tests/test'
