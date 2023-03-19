@@ -33,3 +33,9 @@ jobs:
         ./gradlew build --console=verbose --no-daemon
       env:
         CI: true
+    - name: View test results
+      uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: Test results
+        path: '/home/runner/work/italki-schedule-bot/italki-schedule-bot/build/reports/tests/test/index.html'
