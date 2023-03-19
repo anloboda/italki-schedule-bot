@@ -35,12 +35,7 @@ jobs:
 
     - name: Upload test output artifact
       uses: actions/upload-artifact@v2
+      if: always()
       with:
         name: test-output
         path: output.txt
-
-    - name: Publish test results
-      if: always()
-      uses: dorny/test-results-parser@v1
-      with:
-      files: test-results/**/*.xml
