@@ -21,8 +21,15 @@ data class Schedule(
             Schedule(italkiLessons.toSortedZonedLessons(zone = EUROPE_KYIV_TIMEZONE))
     }
 
-    fun toTelegramString() = MESSAGE_TEMPLATE.format(
-        zonedLessons.toLessonLines().joinToString(System.lineSeparator())
-    )
+    fun toTelegramString(): String = when {
+        zonedLessons.isEmpty() -> {
+            "No lessons today :( "
+        }
+        else -> {
+            MESSAGE_TEMPLATE.format(
+                zonedLessons.toLessonLines().joinToString(System.lineSeparator())
+            )
+        }
+    }
 
 }

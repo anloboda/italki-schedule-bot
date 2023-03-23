@@ -35,10 +35,6 @@ class ScheduleServiceTest {
             )
         )
 
-        val fixedDateTime = LocalDateTime.of(2023, 2, 12, 0, 0, 0)
-
-        mockkStatic(LocalDateTime::class)
-        every { LocalDateTime.now() } returns fixedDateTime
         every { scheduleRepository.get(id, any(), any()) } returns italkiScheduleResponse
 
         val expectedSchedule = Schedule(
@@ -51,7 +47,7 @@ class ScheduleServiceTest {
         )
 
         //when
-        val schedule = scheduleService.get(id)
+        val schedule = scheduleService.get(id, "2023-02-12T00:00:00Z", "2023-02-12T23:59:59Z")
 
         //then
         verify(exactly = 1) { scheduleRepository.get(id, "2023-02-12T00:00:00Z", "2023-02-12T23:59:59Z") }
