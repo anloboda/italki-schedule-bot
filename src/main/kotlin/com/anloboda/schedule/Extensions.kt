@@ -19,11 +19,3 @@ private fun getZonedDateTime(dateTime: String, zone: String): ZonedDateTime {
     val ukraineTimeZone = ZoneId.of(zone)
     return originalDateTime.withZoneSameInstant(ukraineTimeZone)
 }
-
-private const val DIAMOND_EMOJI = "\uD83D\uDD39"
-
-fun List<ZonedLesson>.toLessonLines(): List<String> = this.map { lesson ->
-    format("$DIAMOND_EMOJI ${lesson.startTime.formatToTime()} - ${lesson.endTime.formatToTime()}")
-}
-
-private fun ZonedDateTime.formatToTime() = this.format(DateTimeFormatter.ofPattern("HH:mm"))

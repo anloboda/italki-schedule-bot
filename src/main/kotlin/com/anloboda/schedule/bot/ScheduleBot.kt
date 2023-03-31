@@ -25,6 +25,7 @@ class ScheduleBot(
                     .chatId(message.chatId.toString())
                     .text(executeCommand(message.text))
                     .build()
+
                 execute(responseMessage)
             }
         }

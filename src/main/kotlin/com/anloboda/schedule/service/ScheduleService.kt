@@ -9,9 +9,8 @@ import org.springframework.stereotype.Service
 class ScheduleService(
     private val scheduleRepository: ScheduleRepository
 ) {
-    //2023-03-11T00:00:00Z
-    fun get(id: Int, startDate: String, endDate: String): Schedule {
-        val response = scheduleRepository.get(id, startDate, endDate)
+    fun get(startDate: String, endDate: String): Schedule {
+        val response = scheduleRepository.get(startDate, endDate)
         return Schedule.from(response.schedule.lessons)
     }
 }

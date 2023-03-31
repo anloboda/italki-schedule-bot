@@ -7,7 +7,6 @@ import java.time.format.DateTimeFormatter
 class TodayScheduleTelegramCommand(private val scheduleService: ScheduleService) : TelegramCommand {
 
     override fun execute() = scheduleService.get(
-        id = 5191769,
         startDate = buildDateTimeString(0, 0, 0),
         endDate = buildDateTimeString(23, 59, 59)
     ).toTelegramString()

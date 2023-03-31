@@ -12,14 +12,14 @@ import org.springframework.stereotype.Component
 @Component
 class TelegramCommandExecutor(scheduleService: ScheduleService) {
 
-    private val requesters = mapOf(
+    private val commands = mapOf(
         "/today" to TodayScheduleTelegramCommand(scheduleService),
         "/tomorrow" to TomorrowScheduleTelegramCommand(scheduleService),
         "/week" to WeekScheduleTelegramCommand(scheduleService),
         "/month" to MonthScheduleTelegramCommand(scheduleService)
     )
 
-    fun execute(parameter: String): String = requesters[parameter]?.execute() ?: throw NoSuchCommandException()
+    fun execute(parameter: String): String = commands[parameter]?.execute() ?: throw NoSuchCommandException()
 
 }
 

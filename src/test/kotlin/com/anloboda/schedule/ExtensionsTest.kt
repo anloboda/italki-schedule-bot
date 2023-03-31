@@ -2,10 +2,8 @@ package com.anloboda.schedule
 
 import com.anloboda.schedule.api.response.ItalkiLesson
 import com.anloboda.schedule.service.model.EUROPE_KYIV_TIMEZONE
-import com.anloboda.schedule.service.model.ZonedLesson
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import java.time.ZonedDateTime
 
 class ExtensionsTest {
 
@@ -44,31 +42,4 @@ class ExtensionsTest {
             }
         }
     }
-
-    @Test
-    fun `toLessonLines() should build array with lesson lines`() {
-        //given
-        val zonedLessons = listOf(
-            ZonedLesson(
-                startTime = ZonedDateTime.parse("2023-02-12T11:30+02:00[Europe/Kiev]"),
-                endTime = ZonedDateTime.parse("2023-02-12T12:30+02:00[Europe/Kiev]")
-            ),
-            ZonedLesson(
-                startTime = ZonedDateTime.parse("2023-02-12T14:30+02:00[Europe/Kiev]"),
-                endTime = ZonedDateTime.parse("2023-02-12T15:30+02:00[Europe/Kiev]")
-            )
-        )
-
-        //when
-        val lessonLines = zonedLessons.toLessonLines()
-
-        //then
-
-        with(lessonLines) {
-            assertEquals(2, size)
-            assertEquals("\uD83D\uDD39 11:30 - 12:30", get(0))
-            assertEquals("\uD83D\uDD39 14:30 - 15:30", get(1))
-        }
-    }
-
 }

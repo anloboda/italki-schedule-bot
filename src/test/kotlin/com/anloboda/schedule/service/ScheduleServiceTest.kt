@@ -8,11 +8,9 @@ import com.anloboda.schedule.service.model.Schedule
 import com.anloboda.schedule.service.model.ZonedLesson
 import io.mockk.every
 import io.mockk.mockk
-import io.mockk.mockkStatic
 import io.mockk.verify
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import java.time.LocalDateTime
 import java.time.ZonedDateTime
 
 
@@ -24,7 +22,6 @@ class ScheduleServiceTest {
     @Test
     fun testGet() {
         //given
-        val id = 1
         val italkiScheduleResponse = ItalkiScheduleResponse(
             schedule = ItalkiScheduleData(
                 lessons = listOf(
@@ -35,7 +32,7 @@ class ScheduleServiceTest {
             )
         )
 
-        every { scheduleRepository.get(id, any(), any()) } returns italkiScheduleResponse
+        every { scheduleRepository.get(any(), any()) } returns italkiScheduleResponse
 
         val expectedSchedule = Schedule(
             zonedLessons = listOf(
@@ -47,10 +44,10 @@ class ScheduleServiceTest {
         )
 
         //when
-        val schedule = scheduleService.get(id, "2023-02-12T00:00:00Z", "2023-02-12T23:59:59Z")
+        val schedule = scheduleService.get("2023-02-12T00:00:00Z", "2023-02-12T23:59:59Z")
 
         //then
-        verify(exactly = 1) { scheduleRepository.get(id, "2023-02-12T00:00:00Z", "2023-02-12T23:59:59Z") }
+        verify(exactly = 1) { scheduleRepository.get("2023-02-12T00:00:00Z", "2023-02-12T23:59:59Z") }
         assertEquals(schedule.zonedLessons, expectedSchedule.zonedLessons)
     }
 }
