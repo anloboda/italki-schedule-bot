@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration
 import java.util.concurrent.TimeUnit
 
 @Configuration
-class OkHttpClientConfig {
+class OKHttpClientConfig {
 
     @Bean
     fun okHttpClient(): OkHttpClient {

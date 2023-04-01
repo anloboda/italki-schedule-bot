@@ -1,7 +1,7 @@
 package com.anloboda.schedule.api
 
 import com.anloboda.schedule.api.response.ItalkiScheduleResponse
-import com.anloboda.schedule.config.OkHttpClientConfig
+import com.anloboda.schedule.config.OKHttpClientConfig
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.cloud.openfeign.FeignClient
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam
 @FeignClient(
     name = "italkiClient",
     url = "\${feign.client.config.italki.url}",
-    configuration = [OkHttpClientConfig::class]
+    configuration = [OKHttpClientConfig::class]
 )
 interface ScheduleApi {
 
