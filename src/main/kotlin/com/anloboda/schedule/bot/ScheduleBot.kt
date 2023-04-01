@@ -21,12 +21,12 @@ class ScheduleBot(
     override fun onUpdateReceived(update: Update) {
         with(update) {
             if (hasMessage() && message.hasText()) {
-                val responseMessage = SendMessage.builder()
+                val response = SendMessage.builder()
                     .chatId(message.chatId.toString())
                     .text(executeCommand(message.text))
                     .build()
 
-                execute(responseMessage)
+                execute(response)
             }
         }
     }

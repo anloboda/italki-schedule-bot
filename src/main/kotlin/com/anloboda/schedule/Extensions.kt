@@ -2,7 +2,11 @@ package com.anloboda.schedule
 
 import com.anloboda.schedule.api.response.ItalkiLesson
 import com.anloboda.schedule.service.model.ZonedLesson
-import java.time.*
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.LocalTime
+import java.time.ZoneId
+import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 
 fun List<ItalkiLesson>.toSortedZonedLessons(zone: String): List<ZonedLesson> = this.map() {

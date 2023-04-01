@@ -9,11 +9,9 @@ import java.time.YearMonth
 class MonthScheduleTelegramCommand(private val scheduleService: ScheduleService) : TelegramCommand {
 
     override fun execute(): String {
-        val today = LocalDate.now()
-        val month = YearMonth.now()
         return scheduleService.get(
-            startDate = today.atStartOfDay().formatForItalkiRequest(),
-            endDate = month.atEndOfMonth().atEndOfDay().formatForItalkiRequest()
+            startDate = LocalDate.now().atStartOfDay().formatForItalkiRequest(),
+            endDate = YearMonth.now().atEndOfMonth().atEndOfDay().formatForItalkiRequest()
         ).toTelegramString()
     }
 }

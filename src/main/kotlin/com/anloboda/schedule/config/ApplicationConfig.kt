@@ -1,6 +1,10 @@
 package com.anloboda.schedule.config
 
-import com.anloboda.schedule.command.*
+import com.anloboda.schedule.command.MonthScheduleTelegramCommand
+import com.anloboda.schedule.command.TelegramCommand
+import com.anloboda.schedule.command.TodayScheduleTelegramCommand
+import com.anloboda.schedule.command.TomorrowScheduleTelegramCommand
+import com.anloboda.schedule.command.WeekScheduleTelegramCommand
 import com.anloboda.schedule.service.ScheduleService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

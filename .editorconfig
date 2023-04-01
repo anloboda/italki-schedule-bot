@@ -2,4 +2,3 @@ root = true
 
 [*.{kt,kts}]
 insert_final_newline = false
-ktlint_disabled_rules = no-wildcard-imports
