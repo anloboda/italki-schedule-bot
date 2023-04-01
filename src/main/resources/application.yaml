@@ -1,5 +1,7 @@
+italki.teacher.id: 4787748
+
 telegram.bot:
-    token: ENC(F/JNx8p9TSNvlgsVKy2rwE4sKNJAslhtPxfKmaWR0J46bZZu7umlIAWo13X4xfwiGC5OL3HtU6s=)
+    token: ENC(54PbPqBPhBQn1n4RacsxSOoGrl4t2Uv7MW7PJ1/NG8+EKdMRCuphydLGEgNTKVGRgnb05kbo5+c=)
     username: super_green_schedule_bot
 
 feign.client.config:

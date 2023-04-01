@@ -12,23 +12,22 @@ import org.junit.jupiter.api.Test
 class ScheduleRepositoryTest {
 
     private val scheduleApi = mockk<ScheduleApi>()
-    private val scheduleRepository = ScheduleRepository(scheduleApi)
+    private val scheduleRepository = ScheduleRepository(1, scheduleApi)
 
     @Test
     fun testGet() {
         //given
-        val id = 1
         val startTime = "startTime"
         val endTime = "endTime"
 
         val italkiScheduleResponse = ItalkiScheduleResponse(schedule = ItalkiScheduleData(lessons = emptyList()))
-        every { scheduleApi.get(id, startTime, endTime) } returns italkiScheduleResponse
+        every { scheduleApi.get(1, startTime, endTime) } returns italkiScheduleResponse
 
         //when
-        val response = scheduleRepository.get(id, startTime, endTime)
+        val response = scheduleRepository.get(startTime=startTime, endTime=endTime)
 
         //then
-        verify(exactly = 1) { scheduleApi.get(id, startTime, endTime) }
+        verify(exactly = 1) { scheduleApi.get(1, startTime, endTime) }
         assertEquals(response, italkiScheduleResponse)
     }
 }

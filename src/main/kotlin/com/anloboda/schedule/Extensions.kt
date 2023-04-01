@@ -2,9 +2,7 @@ package com.anloboda.schedule
 
 import com.anloboda.schedule.api.response.ItalkiLesson
 import com.anloboda.schedule.service.model.ZonedLesson
-import okhttp3.internal.format
-import java.time.ZoneId
-import java.time.ZonedDateTime
+import java.time.*
 import java.time.format.DateTimeFormatter
 
 
@@ -20,10 +18,9 @@ private fun getZonedDateTime(dateTime: String, zone: String): ZonedDateTime {
     return originalDateTime.withZoneSameInstant(ukraineTimeZone)
 }
 
-private const val DIAMOND_EMOJI = "\uD83D\uDD39"
 
-fun List<ZonedLesson>.toLessonLines(): List<String> = this.map { lesson ->
-    format("$DIAMOND_EMOJI ${lesson.startTime.formatToTime()} - ${lesson.endTime.formatToTime()}")
-}
+private val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'")
 
-private fun ZonedDateTime.formatToTime() = this.format(DateTimeFormatter.ofPattern("HH:mm"))
+fun LocalDate.atEndOfDay(): LocalDateTime = this.atTime(LocalTime.MAX)
+
+fun LocalDateTime.formatForItalkiRequest() : String = this.format(formatter)

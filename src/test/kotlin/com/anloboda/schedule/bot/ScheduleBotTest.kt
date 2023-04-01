@@ -1,6 +1,6 @@
 package com.anloboda.schedule.bot
 
-import com.anloboda.schedule.service.ScheduleService
+import com.anloboda.schedule.command.executor.TelegramCommandExecutor
 import com.anloboda.schedule.service.model.Schedule
 import io.mockk.every
 import io.mockk.mockk
@@ -13,11 +13,11 @@ import org.telegram.telegrambots.meta.api.objects.Update
 
 class ScheduleBotTest {
 
-    private val scheduleService = mockk<ScheduleService>()
+    private val commandExecutor = mockk<TelegramCommandExecutor>()
     private val scheduleBot =
         spyk(
             ScheduleBot(
-                botToken = "token", botUsername = "username", scheduleService = scheduleService
+                botToken = "token", botUsername = "username", telegramCommandExecutor = commandExecutor
             )
         )
 
@@ -28,7 +28,7 @@ class ScheduleBotTest {
         val update = Update()
         val message = mockk<Message>()
         every { message.chatId } returns 123456L
-        every { message.text } returns "/schedule"
+        every { message.text } returns "/today"
         every { message.hasText() } returns true
 
         update.message = message
@@ -39,14 +39,14 @@ class ScheduleBotTest {
             .text(schedule.toTelegramString())
             .build()
 
-        every { scheduleService.get(any()) } returns schedule
+        every { commandExecutor.execute(any()) } returns schedule.toTelegramString()
         every { scheduleBot.execute(sendMessage) } returns null
 
         //when
         scheduleBot.onUpdateReceived(update)
 
         // then
-        verify(exactly = 1) { scheduleService.get(any()) }
+        verify(exactly = 1) { commandExecutor.execute("/today") }
         verify(exactly = 1) { scheduleBot.execute(sendMessage) }
     }
 }

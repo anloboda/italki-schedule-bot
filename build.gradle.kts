@@ -43,6 +43,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-aop:3.0.4")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation(kotlin("test"))
 	testImplementation("io.mockk:mockk:1.13.4")
 }
 
@@ -56,4 +57,6 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 	testLogging { events("passed", "skipped", "failed") }
+	systemProperty("junit.jupiter.extensions.autodetection.enabled", true)
+	jvmArgs("--add-opens", "java.base/java.time=ALL-UNNAMED")
 }
