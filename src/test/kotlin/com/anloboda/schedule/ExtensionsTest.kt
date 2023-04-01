@@ -9,17 +9,17 @@ class ExtensionsTest {
 
     @Test
     fun `toSortedZonedLessons() should convert to sorted zoned lessons`() {
-        //given
+        // given
         val italkiLessons = listOf(
             ItalkiLesson(startTime = "2023-03-13T15:00:00+00:00", "2023-03-13T16:00:00+00:00"),
             ItalkiLesson(startTime = "2023-03-13T09:30:00+00:00", "2023-03-13T10:30:00+00:00"),
-            ItalkiLesson(startTime = "2023-03-13T11:30:00+00:00", "2023-03-13T12:30:00+00:00"),
+            ItalkiLesson(startTime = "2023-03-13T11:30:00+00:00", "2023-03-13T12:30:00+00:00")
         )
 
-        //when
+        // when
         val sortedZonedLessons = italkiLessons.toSortedZonedLessons(EUROPE_KYIV_TIMEZONE)
 
-        //then
+        // then
         with(sortedZonedLessons) {
             assertEquals(3, size)
             with(get(0)) {

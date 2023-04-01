@@ -13,7 +13,7 @@ import org.telegram.telegrambots.meta.api.objects.Update
 class ScheduleBot(
     @Value("\${telegram.bot.token}") private val botToken: String,
     @Value("\${telegram.bot.username}") private val botUsername: String,
-    private val telegramCommandExecutor: TelegramCommandExecutor,
+    private val telegramCommandExecutor: TelegramCommandExecutor
 ) : TelegramLongPollingBot(botToken) {
 
     override fun getBotUsername() = botUsername
@@ -35,7 +35,7 @@ class ScheduleBot(
         telegramCommandExecutor.execute(command)
     } catch (ex: ItalkiApiErrorException) {
         "Sorry, Italki is currently unavailable, please try again later"
-    } catch (ex: NoSuchCommandException){
+    } catch (ex: NoSuchCommandException) {
         "Sorry, this command doesn't exist, please select the command from the menu"
     } catch (ex: Exception) {
         "Sorry, bot is currently unavailable, please try again later"

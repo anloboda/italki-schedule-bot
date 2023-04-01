@@ -18,8 +18,8 @@ class MonthScheduleTelegramCommandTest {
 
     @Test
     fun testExecute() {
-        //given
-        val fixedDate = LocalDate.of(2023, 3,1)
+        // given
+        val fixedDate = LocalDate.of(2023, 3, 1)
         mockkStatic(LocalDate::class)
         every { LocalDate.now() } returns fixedDate
 
@@ -28,13 +28,13 @@ class MonthScheduleTelegramCommandTest {
         every { YearMonth.now() } returns fixedMonth
 
         val expected = Schedule(emptyList())
-        every { service.get("2023-03-01T00:00:00Z","2023-03-31T23:59:59Z") } returns expected
+        every { service.get("2023-03-01T00:00:00Z", "2023-03-31T23:59:59Z") } returns expected
 
-        //when
+        // when
         val actual = monthScheduleCommand.execute()
 
-        //then
-        verify(exactly = 1) { service.get("2023-03-01T00:00:00Z","2023-03-31T23:59:59Z") }
+        // then
+        verify(exactly = 1) { service.get("2023-03-01T00:00:00Z", "2023-03-31T23:59:59Z") }
         Assertions.assertEquals("No lessons :(", actual)
     }
 }

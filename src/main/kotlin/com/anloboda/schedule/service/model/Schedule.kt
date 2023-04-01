@@ -6,7 +6,7 @@ import com.anloboda.schedule.toSortedZonedLessons
 const val EUROPE_KYIV_TIMEZONE = "Europe/Kiev"
 
 data class Schedule(
-    val zonedLessons: List<ZonedLesson>,
+    val zonedLessons: List<ZonedLesson>
 ) {
     companion object {
         fun from(italkiLessons: List<ItalkiLesson>) =
@@ -22,8 +22,7 @@ data class Schedule(
     private fun buildTelegramString(): String {
         val scheduleBuilder = StringBuilder()
         for ((dayHeader, lessons) in groupLessonsByDate()) {
-
-            //append header like: MARCH 31 (FRIDAY)
+            // append header like: MARCH 31 (FRIDAY)
             scheduleBuilder.appendLine(dayHeader)
 
             // build lessons block
@@ -36,7 +35,6 @@ data class Schedule(
 
         return scheduleBuilder.toString()
     }
-
 
     private fun groupLessonsByDate() = zonedLessons.groupBy { lesson ->
         val month = lesson.startTime.month

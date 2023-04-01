@@ -16,17 +16,17 @@ class ScheduleRepositoryTest {
 
     @Test
     fun testGet() {
-        //given
+        // given
         val startTime = "startTime"
         val endTime = "endTime"
 
         val italkiScheduleResponse = ItalkiScheduleResponse(schedule = ItalkiScheduleData(lessons = emptyList()))
         every { scheduleApi.get(1, startTime, endTime) } returns italkiScheduleResponse
 
-        //when
-        val response = scheduleRepository.get(startTime=startTime, endTime=endTime)
+        // when
+        val response = scheduleRepository.get(startTime = startTime, endTime = endTime)
 
-        //then
+        // then
         verify(exactly = 1) { scheduleApi.get(1, startTime, endTime) }
         assertEquals(response, italkiScheduleResponse)
     }

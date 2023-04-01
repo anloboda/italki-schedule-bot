@@ -21,19 +21,19 @@ class TelegramCommandExecutorTest {
 
     @Test
     fun executeShouldReturnScheduleString() {
-        //given
+        // given
         every { service.get(any(), any()) } returns Schedule(emptyList())
 
-        //when
+        // when
         val actual = commandExecutor.execute("/today")
 
-        //then
+        // then
         assertEquals("No lessons :(", actual)
     }
 
     @Test
     fun executeShouldThrowNoSuchCommandException() {
-        //when
+        // when
         assertFailsWith<NoSuchCommandException> { commandExecutor.execute("/unknown") }
     }
 }

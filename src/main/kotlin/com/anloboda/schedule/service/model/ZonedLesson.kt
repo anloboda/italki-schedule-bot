@@ -10,7 +10,7 @@ data class ZonedLesson(
     val startTime: ZonedDateTime,
     val endTime: ZonedDateTime
 
-){
+) {
     override fun toString(): String {
         val timePattern = DateTimeFormatter.ofPattern("HH:mm")
         return format("$DIAMOND_EMOJI ${startTime.format(timePattern)} - ${endTime.format(timePattern)}")

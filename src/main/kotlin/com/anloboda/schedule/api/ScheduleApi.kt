@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestParam
 
 @FeignClient(
-    name = "italkiClient", url = "\${feign.client.config.italki.url}", configuration = [OkHttpClientConfig::class]
+    name = "italkiClient",
+    url = "\${feign.client.config.italki.url}",
+    configuration = [OkHttpClientConfig::class]
 )
 interface ScheduleApi {
 

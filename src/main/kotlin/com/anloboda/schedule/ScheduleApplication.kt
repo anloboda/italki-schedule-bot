@@ -11,5 +11,5 @@ import org.springframework.cloud.openfeign.EnableFeignClients
 class ScheduleApplication
 
 fun main(args: Array<String>) {
-	runApplication<ScheduleApplication>(*args)
+    runApplication<ScheduleApplication>(*args)
 }

@@ -7,7 +7,7 @@ import java.lang.Exception
 
 class ItalkiApiErrorDecoder : ErrorDecoder {
     override fun decode(methodKey: String, response: Response?): Exception {
-        //TODO: add log here
+        // TODO: add log here
         throw ItalkiApiErrorException()
     }
 }

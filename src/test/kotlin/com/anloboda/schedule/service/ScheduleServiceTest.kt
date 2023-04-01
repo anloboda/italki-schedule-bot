@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.time.ZonedDateTime
 
-
 class ScheduleServiceTest {
 
     private val scheduleRepository = mockk<ScheduleRepository>()
@@ -21,12 +20,13 @@ class ScheduleServiceTest {
 
     @Test
     fun testGet() {
-        //given
+        // given
         val italkiScheduleResponse = ItalkiScheduleResponse(
             schedule = ItalkiScheduleData(
                 lessons = listOf(
                     ItalkiLesson(
-                        startTime = "2023-02-12T09:30:00+00:00", endTime = "2023-02-12T10:30:00+00:00"
+                        startTime = "2023-02-12T09:30:00+00:00",
+                        endTime = "2023-02-12T10:30:00+00:00"
                     )
                 )
             )
@@ -43,10 +43,10 @@ class ScheduleServiceTest {
             )
         )
 
-        //when
+        // when
         val schedule = scheduleService.get("2023-02-12T00:00:00Z", "2023-02-12T23:59:59Z")
 
-        //then
+        // then
         verify(exactly = 1) { scheduleRepository.get("2023-02-12T00:00:00Z", "2023-02-12T23:59:59Z") }
         assertEquals(schedule.zonedLessons, expectedSchedule.zonedLessons)
     }

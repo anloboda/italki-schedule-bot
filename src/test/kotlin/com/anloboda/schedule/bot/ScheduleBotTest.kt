@@ -17,10 +17,11 @@ class ScheduleBotTest {
     private val scheduleBot =
         spyk(
             ScheduleBot(
-                botToken = "token", botUsername = "username", telegramCommandExecutor = commandExecutor
+                botToken = "token",
+                botUsername = "username",
+                telegramCommandExecutor = commandExecutor
             )
         )
-
 
     @Test
     fun testOnUpdateReceived() {
@@ -42,7 +43,7 @@ class ScheduleBotTest {
         every { commandExecutor.execute(any()) } returns schedule.toTelegramString()
         every { scheduleBot.execute(sendMessage) } returns null
 
-        //when
+        // when
         scheduleBot.onUpdateReceived(update)
 
         // then

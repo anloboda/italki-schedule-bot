@@ -4,7 +4,6 @@ import com.anloboda.schedule.repository.ScheduleRepository
 import com.anloboda.schedule.service.model.Schedule
 import org.springframework.stereotype.Service
 
-
 @Service
 class ScheduleService(
     private val scheduleRepository: ScheduleRepository
