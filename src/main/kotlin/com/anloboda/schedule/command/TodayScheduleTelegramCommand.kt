@@ -1,19 +1,17 @@
 package com.anloboda.schedule.command
 
+import com.anloboda.schedule.atEndOfDay
+import com.anloboda.schedule.formatForItalkiRequest
 import com.anloboda.schedule.service.ScheduleService
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
+import java.time.LocalDate
 
 class TodayScheduleTelegramCommand(private val scheduleService: ScheduleService) : TelegramCommand {
 
-    override fun execute() = scheduleService.get(
-        startDate = buildDateTimeString(0, 0, 0),
-        endDate = buildDateTimeString(23, 59, 59)
-    ).toTelegramString()
-
-    private fun buildDateTimeString(hour: Int, minute: Int, second: Int): String {
-        val currentDateTime = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'")
-        return currentDateTime.withHour(hour).withMinute(minute).withSecond(second).format(formatter)
+    override fun execute(): String {
+        val today = LocalDate.now()
+        return scheduleService.get(
+            startDate = today.atStartOfDay().formatForItalkiRequest(),
+            endDate = today.atEndOfDay().formatForItalkiRequest()
+        ).toTelegramString()
     }
 }
