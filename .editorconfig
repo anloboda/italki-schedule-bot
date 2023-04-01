@@ -1,6 +1,5 @@
 root = true
 
 [*.{kt,kts}]
-# Disable final-newline rule
 insert_final_newline = false
-disabled_rules = no-wildcard-imports
+ktlint_disabled_rules = no-wildcard-imports
