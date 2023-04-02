@@ -22,7 +22,7 @@ class TelegramCommandExecutorTest {
     @Test
     fun executeShouldReturnScheduleString() {
         // given
-        every { service.get(any(), any()) } returns Schedule(emptyList())
+        every { service.getSchedule(any(), any()) } returns Schedule(emptyList())
 
         // when
         val actual = commandExecutor.execute("/today")

@@ -24,13 +24,13 @@ class WeekScheduleTelegramCommandTest {
         every { LocalDate.now() } returns fixedDate
 
         val expected = Schedule(emptyList())
-        every { service.get("2023-02-28T00:00:00Z", "2023-03-05T23:59:59Z") } returns expected
+        every { service.getSchedule("2023-02-28T00:00:00Z", "2023-03-05T23:59:59Z") } returns expected
 
         // when
         val actual = weekScheduleTelegramCommand.execute()
 
         // then
-        verify(exactly = 1) { service.get("2023-02-28T00:00:00Z", "2023-03-05T23:59:59Z") }
+        verify(exactly = 1) { service.getSchedule("2023-02-28T00:00:00Z", "2023-03-05T23:59:59Z") }
         Assertions.assertEquals("No lessons :(", actual)
     }
 }

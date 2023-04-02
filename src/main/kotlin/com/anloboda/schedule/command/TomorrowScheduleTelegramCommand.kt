@@ -9,7 +9,7 @@ class TomorrowScheduleTelegramCommand(private val scheduleService: ScheduleServi
 
     override fun execute(): String {
         val tomorrow = LocalDate.now().plusDays(1)
-        return scheduleService.get(
+        return scheduleService.getSchedule(
             startDate = tomorrow.atStartOfDay().formatForItalkiRequest(),
             endDate = tomorrow.atEndOfDay().formatForItalkiRequest()
         ).toTelegramString()

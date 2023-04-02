@@ -28,3 +28,10 @@ resilience4j:
         sliding-window-type: count_based
         record-exceptions:
           - com.anloboda.schedule.api.ItalkiApiErrorException
+  retry:
+    instances:
+      get-schedule:
+        maxAttempts: 3
+        waitDuration: 2s
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2

@@ -11,7 +11,7 @@ class WeekScheduleTelegramCommand(private val scheduleService: ScheduleService) 
     override fun execute(): String {
         val today = LocalDate.now()
         val sunday = today.with(SUNDAY)
-        return scheduleService.get(
+        return scheduleService.getSchedule(
             startDate = today.atStartOfDay().formatForItalkiRequest(),
             endDate = sunday.atEndOfDay().formatForItalkiRequest()
         ).toTelegramString()

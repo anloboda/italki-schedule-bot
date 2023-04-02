@@ -44,7 +44,7 @@ class ScheduleServiceTest {
         )
 
         // when
-        val schedule = scheduleService.get("2023-02-12T00:00:00Z", "2023-02-12T23:59:59Z")
+        val schedule = scheduleService.getSchedule("2023-02-12T00:00:00Z", "2023-02-12T23:59:59Z")
 
         // then
         verify(exactly = 1) { scheduleRepository.get("2023-02-12T00:00:00Z", "2023-02-12T23:59:59Z") }

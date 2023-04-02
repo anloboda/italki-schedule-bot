@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 class ScheduleService(
     private val scheduleRepository: ScheduleRepository
 ) {
-    fun get(startDate: String, endDate: String): Schedule {
+    fun getSchedule(startDate: String, endDate: String): Schedule {
         val response = scheduleRepository.get(startDate, endDate)
         return Schedule.from(response.schedule.lessons)
     }

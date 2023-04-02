@@ -68,13 +68,11 @@ class ScheduleBotTest {
 
     companion object {
         @JvmStatic
-        fun parameters(): List<Arguments> {
-            return listOf<Arguments>(
-                Arguments.of(ItalkiApiErrorException(), "Sorry, Italki is currently unavailable, please try again later"),
-                Arguments.of(NoSuchCommandException(), "Sorry, this command doesn't exist, please select the command from the menu"),
-                Arguments.of(Exception(), "Sorry, bot is currently unavailable, please try again later")
-            )
-        }
+        fun parameters(): List<Arguments> = listOf<Arguments>(
+            Arguments.of(ItalkiApiErrorException(), "Sorry, Italki is currently unavailable, please try again later"),
+            Arguments.of(NoSuchCommandException(), "Sorry, this command doesn't exist, please select the command from the menu"),
+            Arguments.of(Exception(), "Sorry, bot is currently unavailable, please try again later")
+        )
     }
 
     private fun buildUpdate() =
