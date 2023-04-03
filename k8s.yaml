@@ -18,5 +18,5 @@ spec:
     spec:
       containers:
         - name: schedule-bot
-          image: grc.io/schedule-bot-382609/schedule-bot
+          image: gcr.io/schedule-bot-382609/schedule-bot
           imagePullPolicy: Always
