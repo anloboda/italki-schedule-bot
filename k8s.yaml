@@ -2,15 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: schedule-bot
+  labels:
+    app: schedule-bot
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: schedule-bot
+      tier: backend
   template:
     metadata:
       labels:
         app: schedule-bot
+        tier: backend
     spec:
       containers:
         - name: schedule-bot
           image: grc.io/schedule-bot-382609/schedule-bot
-          ports:
-            - containerPort: 8080
+          imagePullPolicy: Always
