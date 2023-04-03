@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: schedule-bot
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: schedule-bot
+    spec:
+      containers:
+        - name: schedule-bot
+          image: grc.io/schedule-bot-382609/schedule-bot
+          ports:
+            - containerPort: 8080
