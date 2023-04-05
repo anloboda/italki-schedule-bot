@@ -1,4 +1,5 @@
-italki.teacher.id: 4787748
+server.port: ${PORT:8080}
+italki.teacher.id: 5191769
 
 telegram.bot:
     token: ENC(54PbPqBPhBQn1n4RacsxSOoGrl4t2Uv7MW7PJ1/NG8+EKdMRCuphydLGEgNTKVGRgnb05kbo5+c=)
